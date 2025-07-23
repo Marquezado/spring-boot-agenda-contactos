@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${contacto.id != null ? 'Editar' : 'Nuevo'}">Contacto</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 th:text="${contacto.id != null ? 'Editar Contacto' : 'Nuevo Contacto'}"></h1>
+<form action="/guardar" method="post" th:object="${contacto}">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/><br/>
+
+    <label>Teléfono:</label>
+    <input type="text" th:field="*{telefono}" required/><br/>
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" required/><br/>
+
+    <label>Dirección:</label>
+    <input type="text" th:field="*{direccion}"/><br/>
+
+    <button type="submit">Guardar</button>
+    <a href="/">Cancelar</a>
+</form>
+</body>
+</html>
